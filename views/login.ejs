@@ -1,8 +1,21 @@
-<% include partials/header %>
-<h1>Login</h1>
-<form action="/login" method="POST">
-  <input type="text" name="username" placeholder="username">
-  <input type="password" name="password" placeholder="password">
-  <button>Login</button>
-</form>
-<% include partials/footer %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YelpCamp | Login</title>
+  <link rel="stylesheet" href="/stylesheets/login.css">
+</head>
+<body>
+  <div class="login-form">
+    <img src="images/avatar-inside-a-circle.png" alt="Avatar Icon" class="avatar">
+    <h1>Login here</h1>
+    <form action="/login" method="POST">
+      <p>Username</p>
+      <input type="text" name="username" placeholder="Username">
+      <p>Password</p>
+      <input type="password" name="password" placeholder="Password">
+      <button>Login</button>
+      <a href="/register">Don't have an account?</a>
+    </form>
+  </div>  
+</body>
+</html>

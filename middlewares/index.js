@@ -24,7 +24,7 @@ middlewares.checkCommentOwnerShip = (req, res, next) => {
   }
 };
 
-middlewares.checkLoggedInMiddleware = (req, res, next) => {
+middlewares.checkLoggedIn = (req, res, next) => {
   if (req.isAuthenticated()) {
     return next();
   }

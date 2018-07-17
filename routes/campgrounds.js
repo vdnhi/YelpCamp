@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   });
 });
 
-router.post('/', middlewares.checkLoggedInMiddleware, (req, res) => {
+router.post('/', middlewares.checkLoggedIn, (req, res) => {
   let name = req.body.name;
   let image = req.body.image;
   let description = req.body.description;
@@ -21,7 +21,7 @@ router.post('/', middlewares.checkLoggedInMiddleware, (req, res) => {
   let newCampground = {
     name: name,
     image: image,
-    const: cost,
+    cost: cost,
     description: description,
     author: {
       id: req.user._id,
@@ -39,7 +39,7 @@ router.post('/', middlewares.checkLoggedInMiddleware, (req, res) => {
   res.redirect('/campgrounds');
 });
 
-router.get('/new', middlewares.checkLoggedInMiddleware, (req, res) => {
+router.get('/new', middlewares.checkLoggedIn, (req, res) => {
   res.render('campgrounds/new')
 });
 
