@@ -30,7 +30,7 @@ middlewares.checkLoggedIn = (req, res, next) => {
   }
   req.flash('error', 'You must login to do that!');
   res.redirect('/login');
-}
+};
 
 middlewares.checkCampgroundOwnerShip = (req, res, next) => {
   if (req.isAuthenticated()) {
@@ -48,9 +48,9 @@ middlewares.checkCampgroundOwnerShip = (req, res, next) => {
       }
     });
   } else {
-    req.flash('error', `You need to be logged in to do that!`);    
+    req.flash('error', `You need to be logged in to do that!`);
     res.redirect('back');
   }
-}
+};
 
 module.exports = middlewares;

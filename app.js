@@ -4,8 +4,6 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-const Campground = require('./models/campground');  
-const Comment = require('./models/comment');
 const User = require('./models/user');
 const seedDB = require('./seeds');
 const commentRoutes = require('./routes/comments');
@@ -14,7 +12,7 @@ const indexRoutes = require('./routes/index');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 
-// seedDB();
+seedDB();
 const dataURL = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
 
 mongoose.connect(dataURL);

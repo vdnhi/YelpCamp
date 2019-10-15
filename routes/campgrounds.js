@@ -14,11 +14,8 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', middlewares.checkLoggedIn, (req, res) => {
-  let name = req.body.name;
-  let image = req.body.image;
-  let description = req.body.description;
-  let cost = req.body.cost;
-  let newCampground = {
+  const { name, image, description, cost } = req.body;
+  const newCampground = {
     name: name,
     image: image,
     cost: cost,
@@ -46,7 +43,7 @@ router.get('/new', middlewares.checkLoggedIn, (req, res) => {
 router.get('/:id', (req, res) => {
   Campground.findById(req.params.id).populate('comments').exec((error, foundCampground) => {
     if (error) {
-      consle.log(`Meet an error!`);
+      console.log(`Meet an error!`);
     } else {
       res.render('campgrounds/show', { campground: foundCampground });
     }
