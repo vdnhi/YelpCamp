@@ -15,8 +15,9 @@ const methodOverride = require('method-override');
 const flash = require('connect-flash');
 
 // seedDB();
+const dataURL = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
 
-mongoose.connect('mongodb://localhost/yelp_camp');
+mongoose.connect(dataURL);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
