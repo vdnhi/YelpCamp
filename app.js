@@ -12,8 +12,8 @@ const indexRoutes = require('./routes/index');
 const methodOverride = require('method-override');
 const flash = require('connect-flash');
 
-seedDB();
 const dataURL = process.env.DATABASEURL || "mongodb://localhost/yelp_camp";
+const PORT = process.env.PORT || 1234;
 
 mongoose.connect(dataURL);
 
@@ -48,6 +48,6 @@ app.use(indexRoutes);
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
-app.listen(process.env.PORT || 3000, process.env.IP, () => {
-  console.log(`Server has started!`);
+app.listen(PORT, process.env.IP, () => {
+  console.log(`Server has started at port ${PORT}!`);
 });
